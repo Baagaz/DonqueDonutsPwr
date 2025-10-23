@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Daftar Produk</title>
-    <!-- Impor Google Fonts untuk Poppins dan Playfair Display -->
-     <link rel="icon" type="image/png" href="profil.jpg" />
+    <title>Daftar Produk - Donque Donuts</title>
+    <link rel="icon" type="image/png" href="profil.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome untuk ikon WhatsApp dan tombol zoom -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* CSS Global */
@@ -24,6 +22,7 @@
             margin: 0;
             background-color: #fff0f5;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         /* Navigasi Bar */
@@ -35,8 +34,9 @@
             padding: 10px 30px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             z-index: 100;
-            position: relative;
-            position: sticky;
+            /* Sticky Header */
+            position: sticky; 
+            top: 0; 
         }
 
         .nav-logo {
@@ -77,6 +77,7 @@
             color: #ff69b4;
         }
 
+        /* Active State CSS */
         .nav-menu a.active {
             color: #ff69b4;
         }
@@ -90,6 +91,7 @@
             bottom: -4px;
             left: 0;
         }
+        
         /* Header (Banner Utama) */
         .main-header-banner img {
             max-width: 100%;
@@ -138,23 +140,7 @@
             margin-bottom: 20px;
             font-family: 'Poppins', sans-serif;
         }
-
-        .btn-hero {
-            display: inline-block;
-            background-color: #ffb6c1;
-            color: #462771;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .btn-hero:hover {
-            background-color: #ff8fab;
-            transform: translateY(-2px);
-        }
-
+        
         /* Produk Section */
         .produk-section {
             position: relative;
@@ -228,7 +214,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative; /* Diperlukan untuk posisi tombol zoom */
+            position: relative;
         }
 
         .produk-card:hover {
@@ -549,16 +535,9 @@
             .sosmed-icons {
                 justify-content: center;
             }
-            /* Modal Responsive */
             .modal-content {
                 max-width: 600px;
                 padding: 25px;
-            }
-            .modal-image-wrapper {
-                padding-right: 0;
-            }
-            .modal-title, .modal-description, .modal-price {
-                text-align: center;
             }
             .modal-image {
                 max-height: 300px;
@@ -613,12 +592,6 @@
                 width: 95%;
                 padding: 20px;
             }
-            .modal-title {
-                font-size: 1.5em;
-            }
-            .modal-description {
-                font-size: 0.9em;
-            }
             .modal-image {
                 max-height: 200px;
             }
@@ -626,37 +599,30 @@
     </style>
 </head>
 <body>
-    <!-- Navigasi Utama -->
     <div class="nav-container">
         <div class="nav-logo">
             <img src="profil.jpg" alt="Logo Donque Donuts">
             <span class="brand-name">Donque Donuts</span>
         </div>
         <nav class="nav-menu">
-            <!-- Kelas 'active' akan diatur oleh JavaScript -->
             <a href="index.html">Home</a>
             <a href="daftar produk.html">Daftar Produk</a>
             <a href="profil.html">Profil</a>
         </nav>
     </div>
 
-    <!-- Header (Gambar Banner) -->
     <header class="main-header-banner">
         <img src="header.png" alt="Donque Donuts Banner" />
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>Donque Donuts – Di Setiap Gigitan, Ada Cerita</h1>
         <p>Donat kukus dan goreng yang lembut, hangat, dan menyatukan rasa.</p>
-        
     </section>
 
-    <!-- Produk Section -->
     <section class="produk-section" id="produk">
         <h2>Produk Kami</h2>
 
-        <!-- Donat Kukus -->
         <div class="subsection">
             <h3>🍩 Donat Kukus</h3>
             <hr />
@@ -665,97 +631,110 @@
                     <div class="produk-card-image-container">
                         <img src="cokat_tiramisu_coklat.jpg" alt="Donat Cokelat Tiramisu isi 6" />
                         <button class="btn-zoom"
-                           data-image="cokat_tiramisu_coklat.jpg"
-                           data-name="Donat Cokelat Tiramisu isi 6">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="cokat_tiramisu_coklat.jpg"
+                             data-name="Donat Cokelat Tiramisu isi 6">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat Tiramisu isi 6</h3>
                     <p>Rp 13.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat Tiramisu isi 6 (Rp 13.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat.png" alt="Donat Cokelat isi 4" />
                         <button class="btn-zoom"
-                           data-image="coklat.png"
-                           data-name="Donat Cokelat isi 4">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="coklat.png"
+                             data-name="Donat Cokelat isi 4">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat isi 4</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat isi 4 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklatmatchatiramisu.png" alt="Donat Cokelat Matcha Tiramisu isi 6" />
                         <button class="btn-zoom"
-                           data-image="coklatmatchatiramisu.png"
-                           data-name="Donat Cokelat Matcha Tiramisu isi 6">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="coklatmatchatiramisu.png"
+                             data-name="Donat Cokelat Matcha Tiramisu isi 6">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat Matcha Tiramisu isi 6</h3>
                     <p>Rp 13.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat Matcha Tiramisu isi 6 (Rp 13.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="taro_tiramisu_cokalt.png" alt="Donat Cokelat Tiramisu Taro isi 6" />
                         <button class="btn-zoom"
-                           data-image="taro_tiramisu_cokalt.png"
-                           data-name="Donat Cokelat Tiramisu Taro isi 6">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="taro_tiramisu_cokalt.png"
+                             data-name="Donat Cokelat Tiramisu Taro isi 6">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat Tiramisu Taro isi 6</h3>
                     <p>Rp 13.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat Tiramisu Taro isi 6 (Rp 13.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat_tiramisu.jpg" alt="Donat Cokelat Tiramisu isi 4" />
                         <button class="btn-zoom"
-                           data-image="coklat_tiramisu.jpg"
-                           data-name="Donat Cokelat Tiramisu isi 4">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="coklat_tiramisu.jpg"
+                             data-name="Donat Cokelat Tiramisu isi 4">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat Tiramisu isi 4</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat Tiramisu isi 4 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat_taro_.jpg" alt="Donat Coklat Taro isi 4" />
                         <button class="btn-zoom"
-                           data-image="coklat_taro_.jpg"
-                           data-name="Donat Coklat Taro isi 4">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="coklat_taro_.jpg"
+                             data-name="Donat Coklat Taro isi 4">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Coklat Taro isi 4</h3>
                     <p>Rp 5.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Coklat Taro isi 4 (Rp 5.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat_tiramisu_taro.jpg" alt="Donat Coklat Tiramisu Taro isi 6" />
                         <button class="btn-zoom"
-                           data-image="coklat_tiramisu_taro.jpg"
-                           data-name="Donat Coklat Tiramisu Taro isi 6">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="coklat_tiramisu_taro.jpg"
+                             data-name="Donat Coklat Tiramisu Taro isi 6">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Coklat Tiramisu Taro isi 6</h3>
                     <p>Rp 13.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Coklat Tiramisu Taro isi 6 (Rp 13.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Donat Goreng -->
         <div class="subsection">
             <h3>🍩 Donat Goreng</h3>
             <hr />
@@ -764,103 +743,115 @@
                     <div class="produk-card-image-container">
                         <img src="donat goreng bubuk coklat.png" alt="Donat Milo Bubuk" />
                         <button class="btn-zoom"
-                           data-image="donat goreng bubuk coklat.png"
-                           data-name="Donat Milo Bubuk isi 3">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="donat goreng bubuk coklat.png"
+                             data-name="Donat Milo Bubuk isi 3">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Milo Bubuk isi 3</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Milo Bubuk isi 3 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng lumer.png" alt="Donat Gula Halus" />
                         <button class="btn-zoom"
-                           data-image="donat goreng lumer.png"
-                           data-name="Donat Cokelat Lumer isi 3">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="donat goreng lumer.png"
+                             data-name="Donat Cokelat Lumer isi 3">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat Lumer isi 3</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat Lumer isi 3 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
-                 <div class="produk-card">
+                <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng toping keju.png" alt="Donat Coklat Keju" />
                         <button class="btn-zoom"
-                           data-image="donat goreng toping keju.png"
-                           data-name="Donat Cokelat Keju isi 3">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="donat goreng toping keju.png"
+                             data-name="Donat Cokelat Keju isi 3">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat Keju isi 3</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat Keju isi 3 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng lumer strawberry.png" alt="Donat Strawberry Lumer" />
                         <button class="btn-zoom"
-                           data-image="donat goreng lumer strawberry.png"
-                           data-name="Donat Strawberry Lumer isi 3">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="donat goreng lumer strawberry.png"
+                             data-name="Donat Strawberry Lumer isi 3">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Strawberry Lumer isi 3</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Strawberry Lumer isi 3 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng tiramisu springkle.png" alt="Donat Tiramisu Sprinkle" />
                         <button class="btn-zoom"
-                           data-image="donat goreng tiramisu springkle.png"
-                           data-name="Donat Tiramisu Sprinkle isi 3">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="donat goreng tiramisu springkle.png"
+                             data-name="Donat Tiramisu Sprinkle isi 3">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Tiramisu Sprinkle isi 3</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Tiramisu Sprinkle isi 3 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng lumer tiramisu.png" alt="Donat Tiramisu Lumer" />
                         <button class="btn-zoom"
-                           data-image="donat goreng lumer tiramisu.png"
-                           data-name="Donat Tiramisu Lumer isi 3">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="donat goreng lumer tiramisu.png"
+                             data-name="Donat Tiramisu Lumer isi 3">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Tiramisu Lumer isi 3</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Tiramisu Lumer isi 3 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng tabur coklat.png" alt="Donat Cokelat Bubuk" />
                         <button class="btn-zoom"
-                           data-image="donat goreng tabur coklat.png"
-                           data-name="Donat Cokelat Bubuk isi 3">
-                           <i class="fas fa-search-plus"></i>
-                        </button>
+                             data-image="donat goreng tabur coklat.png"
+                             data-name="Donat Cokelat Bubuk isi 3">
+                             <i class="fas fa-search-plus"></i>
+                         </button>
                     </div>
                     <h3>Donat Cokelat Bubuk isi 3</h3>
                     <p>Rp 10.000</p>
-                    
+                    <a href="#" class="btn-whatsapp" data-whatsapp-message="Halo, saya ingin pesan Donat Cokelat Bubuk isi 3 (Rp 10.000)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang!
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Informasi Menu dan Harga -->
     <section class="menu-info-section">
         <h2>Daftar Menu Donat Kukus & Goreng</h2>
         <div class="menu-info-content">
 
-            <!-- Donat Kukus Column -->
             <div class="menu-column">
                 <h3>🍩 Donat Kukus (Topping Lumer)</h3>
                 <ul>
@@ -875,7 +866,6 @@
                 </p>
             </div>
 
-            <!-- Donat Goreng Column -->
             <div class="menu-column">
                 <h3>🍩 Donat Goreng (Lumer & Bubuk)</h3>
                 <ul>
@@ -887,7 +877,6 @@
                 </p>
             </div>
 
-            <!-- Harga & Info Column -->
             <div class="menu-column">
                 <h3>💸 Harga & Info</h3>
                 <ul>
@@ -907,27 +896,22 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <!-- Kolom Kiri Footer (Alamat & Jam Operasional) -->
             <div class="footer-column">
                 <p>📍 JL. Mayjen Sutoyo, Suronegaran, Purworejo</p>
                 <p>🕙 Buka: Setiap Hari, mulai pukul 10.00 WIB sampai habis</p>
             </div>
 
-            <!-- Kolom Kanan Footer (Sosial Media) -->
             <div class="footer-column footer-social">
                 <p>Ikuti Kami:</p>
                 <div class="sosmed-icons">
-                    <!-- Instagram -->
                     <div class="sosmed-item">
                         <a href="https://www.instagram.com/donque.donutspwr/" target="_blank">
                             <img src="instagram.png" alt="Instagram">
                         </a>
                         <p>@donque.donuts</p>
                     </div>
-                    <!-- TikTok -->
                     <div class="sosmed-item">
                         <a href="https://www.tiktok.com/@donque.donuts" target="_blank">
                             <img src="tik-tok.png" alt="TikTok">
@@ -942,7 +926,6 @@
         </div>
     </footer>
 
-    <!-- Modal untuk menampilkan gambar yang diperbesar -->
     <div id="imageModal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn">&times;</button>
@@ -950,7 +933,6 @@
         </div>
     </div>
     
-    <!-- Modal untuk detail produk (tetap ada tapi tidak terlihat) -->
     <div id="productDetailModal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn">&times;</button>
@@ -970,32 +952,49 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all buttons
-            const zoomButtons = document.querySelectorAll('.btn-zoom');
-            const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
+            // Nomor WhatsApp (sudah ada di kode Anda)
+            const whatsappNumber = '6285799452120'; 
+
+            // Mendapatkan URL LENGKAP saat ini dalam huruf kecil
+            const fullUrl = window.location.href.toLowerCase();
             
-            // Get modal elements for image zoom
+            // Logika untuk Navigasi Aktif (Active State)
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            navLinks.forEach(link => {
+                link.classList.remove('active'); // Hapus kelas 'active' dari semua tautan
+                const linkPath = link.getAttribute('href').toLowerCase();
+
+                // Pengecekan 1: Jika URL mengandung nama file tautan (paling andal di lokal)
+                const isCurrentPage = fullUrl.includes(linkPath) && linkPath !== '';
+                
+                // Pengecekan 2: Menangani kasus Home (index.html) jika diakses dari root (URL tidak mengandung nama file .html yang lain)
+                const isHomeRoot = linkPath === 'index.html' && (fullUrl.endsWith('index.html') || !fullUrl.includes('.html'));
+
+                if (isCurrentPage || isHomeRoot) {
+                    link.classList.add('active'); // Tambahkan kelas 'active' (garis pink)
+                }
+            });
+
+
+            // === Logic untuk Modal Zoom Gambar ===
+            const zoomButtons = document.querySelectorAll('.btn-zoom');
             const imageModalOverlay = document.getElementById('imageModal');
             const modalFullImage = document.getElementById('modalFullImage');
             const imageModalCloseBtn = imageModalOverlay.querySelector('.modal-close-btn');
-
-            // WhatsApp number (replace with your actual number)
-            const whatsappNumber = '6281234567890';
-
-            // Function to open the image modal
+            
             function openImageModal(imageSrc) {
                 modalFullImage.src = imageSrc;
                 imageModalOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
 
-            // Function to close the image modal
             function closeImageModal() {
                 imageModalOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
 
-            // Add click event listener to each zoom button
+            // Event listener untuk tombol zoom
             zoomButtons.forEach(button => {
                 button.addEventListener('click', function(event) {
                     event.preventDefault();
@@ -1004,44 +1003,30 @@
                 });
             });
 
-            // Add click event listener to close image modal button
+            // Event listener untuk menutup modal
             imageModalCloseBtn.addEventListener('click', closeImageModal);
-
-            // Close image modal when clicking outside
             imageModalOverlay.addEventListener('click', function(event) {
                 if (event.target === imageModalOverlay) {
                     closeImageModal();
                 }
             });
-
-            // Close image modal with Escape key
             document.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape' && imageModalOverlay.classList.contains('active')) {
                     closeImageModal();
                 }
             });
 
-            // Add click event listener to each WhatsApp button
+            // === Logic untuk Tombol WhatsApp ===
+            const whatsappButtons = document.querySelectorAll('.produk-card .btn-whatsapp');
+            
             whatsappButtons.forEach(button => {
                 button.addEventListener('click', function(event) {
                     event.preventDefault();
-                    const whatsappMessage = this.dataset.whatsappMessage;
+                    // Ambil pesan dari data-whatsapp-message
+                    const whatsappMessage = this.dataset.whatsappMessage; 
                     const encodedMessage = encodeURIComponent(whatsappMessage);
                     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
                 });
-            });
-
-            // Script untuk navigasi aktif
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            const currentPath = window.location.pathname.split('/').pop();
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                const linkPath = link.getAttribute('href').split('/').pop();
-
-                if (currentPath === linkPath || (currentPath === '' && linkPath === 'Donque Donuts.html')) {
-                    link.classList.add('active');
-                }
             });
         });
     </script>
