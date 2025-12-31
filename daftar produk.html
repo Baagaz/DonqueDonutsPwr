@@ -261,10 +261,6 @@
             font-size: 1.1em;
         }
 
-        .produk-card .product-description {
-            display: none;
-        }
-
         .produk-card p {
             color: #008080;
             font-weight: bold;
@@ -273,38 +269,48 @@
             margin-bottom: 15px;
         }
 
-        /* Tombol Pesan WhatsApp di kartu produk */
-        .produk-card .btn-whatsapp {
-            display: inline-block;
+        /* STYLING TOMBOL PESAN SEKARANG BESAR (CTA) */
+        .order-now-container {
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+
+        .btn-order-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: #25D366;
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
+            padding: 15px 40px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9em;
-            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s, background-color 0.3s;
+            border: none;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        .produk-card .btn-whatsapp:hover {
-            background-color: #1DA851;
-            transform: translateY(-1px);
+        .btn-order-large:hover {
+            background-color: #1da851;
+            transform: scale(1.05);
+            color: white;
         }
 
-        .produk-card .btn-whatsapp i {
-            margin-right: 5px;
+        .btn-order-large i { 
+            font-size: 1.4em;
+            margin-right: 12px; 
         }
 
-        /* Modal Styles (untuk gambar yang diperbesar) */
+        /* Modal Styles */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Background lebih gelap */
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -327,16 +333,8 @@
             max-width: 800px;
             width: 90%;
             position: relative;
-            transform: translateY(-50px);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            text-align: center; /* Konten di tengah */
+            text-align: center;
             border: 2px solid #ffb6c1;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-            opacity: 1;
         }
         
         .modal-close-btn {
@@ -349,37 +347,20 @@
             cursor: pointer;
             color: #555;
             transition: color 0.2s;
-            line-height: 1; /* Menyesuaikan posisi X */
-        }
-
-        .modal-close-btn:hover {
-            color: #d63384;
         }
 
         .modal-image {
-            width: 100%; /* Gambar mengisi seluruh lebar modal */
-            height: auto; /* Mempertahankan rasio aspek */
-            max-height: 70vh; /* Maksimal 70% dari tinggi viewport */
-            object-fit: contain; /* Memastikan gambar tidak terpotong */
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
             border-radius: 10px;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        
-        /* Menghapus gaya yang tidak digunakan di modal baru */
-        .modal-details { display: none; }
-        .modal-title { display: none; }
-        .modal-description { display: none; }
-        .modal-price { display: none; }
-        .btn-whatsapp-modal { display: none; }
-
 
         /* Section Informasi Menu dan Harga */
         .menu-info-section {
             padding: 60px 20px;
             background: linear-gradient(to right, #fff0f5, #fbeaff);
-            font-family: 'Poppins', sans-serif;
             text-align: center;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
         }
@@ -430,12 +411,6 @@
             font-size: 1.05em;
         }
 
-        .menu-column p {
-            margin-top: 10px;
-            color: #6c757d;
-            font-size: 0.9em;
-        }
-
         .price-highlight {
             font-weight: bold;
             color: #462771;
@@ -464,7 +439,7 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            align-items: flex-start;
+            align-items: center;
             max-width: 1000px;
             margin: auto;
             gap: 30px;
@@ -476,125 +451,26 @@
             text-align: left;
         }
 
-        .footer-column p {
-            margin: 5px 0;
-            line-height: 1.6;
-        }
-
-        .footer-social {
-            text-align: right;
-        }
-
-        .footer-social p {
-            margin: 5px 0 10px;
-        }
-
-        .sosmed-icons {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .sosmed-item {
-            text-align: center;
-        }
-
-        .sosmed-item img {
+        .sosmed-icons img {
             width: 35px;
-            height: 35px;
             transition: transform 0.2s ease;
         }
 
-        .sosmed-item img:hover {
+        .sosmed-icons img:hover {
             transform: scale(1.1);
-        }
-
-        .sosmed-item p {
-            margin: 2px 0;
-            font-size: 0.85em;
-            color: #ccc;
         }
 
         /* Responsiveness */
         @media (max-width: 900px) {
-            .produk-list, .menu-info-content, .footer-content {
-                gap: 20px;
-                max-width: 700px;
-            }
-            .produk-card {
-                width: 45%;
-            }
-            .menu-column {
-                min-width: 280px;
-            }
-            .footer-column, .footer-social {
-                text-align: center;
-            }
-            .sosmed-icons {
-                justify-content: center;
-            }
-            .modal-content {
-                max-width: 600px;
-                padding: 25px;
-            }
-            .modal-image {
-                max-height: 300px;
-                width: 80%;
-                margin: 0 auto 20px auto;
-            }
-            .btn-whatsapp {
-                width: 100%;
-            }
+            .produk-card { width: 45%; }
+            .footer-column { text-align: center; }
         }
 
         @media (max-width: 600px) {
-            .nav-container {
-                flex-direction: column;
-                padding: 15px;
-            }
-            .nav-logo {
-                margin-bottom: 15px;
-            }
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            .hero {
-                padding: 70px 15px;
-            }
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .produk-section h2, .menu-info-section h2 {
-                font-size: 1.8em;
-                margin-bottom: 30px;
-            }
-            .subsection h3 {
-                font-size: 1.5em;
-            }
-            .produk-list {
-                gap: 15px;
-            }
-            .produk-card {
-                width: 90%;
-                max-width: 300px;
-            }
-            .menu-column {
-                min-width: 90%;
-            }
-            .modal-content {
-                width: 95%;
-                padding: 20px;
-            }
-            .modal-image {
-                max-height: 200px;
-            }
+            .nav-container { flex-direction: column; padding: 15px; }
+            .nav-menu { gap: 15px; margin-top: 10px; }
+            .produk-card { width: 90%; max-width: 300px; }
+            .btn-order-large { width: 100%; font-size: 1.1em; padding: 15px 20px; }
         }
     </style>
 </head>
@@ -623,6 +499,7 @@
     <section class="produk-section" id="produk">
         <h2>Produk Kami</h2>
 
+        <!-- Donat Kukus -->
         <div class="subsection">
             <h3>🍩 Donat Kukus</h3>
             <hr />
@@ -630,97 +507,77 @@
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="cokat_tiramisu_coklat.jpg" alt="Donat Cokelat Tiramisu isi 6" />
-                        <button class="btn-zoom"
-                             data-image="cokat_tiramisu_coklat.jpg"
-                             data-name="Donat Cokelat Tiramisu isi 6">
+                        <button class="btn-zoom" data-image="cokat_tiramisu_coklat.jpg">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat Tiramisu isi 6</h3>
                     <p>Rp 13.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat.png" alt="Donat Cokelat isi 4" />
-                        <button class="btn-zoom"
-                             data-image="coklat.png"
-                             data-name="Donat Cokelat isi 4">
+                        <button class="btn-zoom" data-image="coklat.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat isi 4</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklatmatchatiramisu.png" alt="Donat Cokelat Matcha Tiramisu isi 6" />
-                        <button class="btn-zoom"
-                             data-image="coklatmatchatiramisu.png"
-                             data-name="Donat Cokelat Matcha Tiramisu isi 6">
+                        <button class="btn-zoom" data-image="coklatmatchatiramisu.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat Matcha Tiramisu isi 6</h3>
                     <p>Rp 13.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="taro_tiramisu_cokalt.png" alt="Donat Cokelat Tiramisu Taro isi 6" />
-                        <button class="btn-zoom"
-                             data-image="taro_tiramisu_cokalt.png"
-                             data-name="Donat Cokelat Tiramisu Taro isi 6">
+                        <button class="btn-zoom" data-image="taro_tiramisu_cokalt.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat Tiramisu Taro isi 6</h3>
                     <p>Rp 13.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat_tiramisu.jpg" alt="Donat Cokelat Tiramisu isi 4" />
-                        <button class="btn-zoom"
-                             data-image="coklat_tiramisu.jpg"
-                             data-name="Donat Cokelat Tiramisu isi 4">
+                        <button class="btn-zoom" data-image="coklat_tiramisu.jpg">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat Tiramisu isi 4</h3>
                     <p>Rp 10.000</p>
-                   
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat_taro_.jpg" alt="Donat Coklat Taro isi 4" />
-                        <button class="btn-zoom"
-                             data-image="coklat_taro_.jpg"
-                             data-name="Donat Coklat Taro isi 4">
+                        <button class="btn-zoom" data-image="coklat_taro_.jpg">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Coklat Taro isi 4</h3>
                     <p>Rp 5.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="coklat_tiramisu_taro.jpg" alt="Donat Coklat Tiramisu Taro isi 6" />
-                        <button class="btn-zoom"
-                             data-image="coklat_tiramisu_taro.jpg"
-                             data-name="Donat Coklat Tiramisu Taro isi 6">
+                        <button class="btn-zoom" data-image="coklat_tiramisu_taro.jpg">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Coklat Tiramisu Taro isi 6</h3>
                     <p>Rp 13.000</p>
-                    
                 </div>
             </div>
         </div>
 
+        <!-- Donat Goreng -->
         <div class="subsection">
             <h3>🍩 Donat Goreng</h3>
             <hr />
@@ -728,104 +585,92 @@
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng bubuk coklat.png" alt="Donat Milo Bubuk" />
-                        <button class="btn-zoom"
-                             data-image="donat goreng bubuk coklat.png"
-                             data-name="Donat Milo Bubuk isi 3">
+                        <button class="btn-zoom" data-image="donat goreng bubuk coklat.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Milo Bubuk isi 3</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
-                        <img src="donat goreng lumer.png" alt="Donat Gula Halus" />
-                        <button class="btn-zoom"
-                             data-image="donat goreng lumer.png"
-                             data-name="Donat Cokelat Lumer isi 3">
+                        <img src="donat goreng lumer.png" alt="Donat Cokelat Lumer" />
+                        <button class="btn-zoom" data-image="donat goreng lumer.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat Lumer isi 3</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
-                        <img src="donat goreng toping keju.png" alt="Donat Coklat Keju" />
-                        <button class="btn-zoom"
-                             data-image="donat goreng toping keju.png"
-                             data-name="Donat Cokelat Keju isi 3">
+                        <img src="donat goreng toping keju.png" alt="Donat Cokelat Keju" />
+                        <button class="btn-zoom" data-image="donat goreng toping keju.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat Keju isi 3</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng lumer strawberry.png" alt="Donat Strawberry Lumer" />
-                        <button class="btn-zoom"
-                             data-image="donat goreng lumer strawberry.png"
-                             data-name="Donat Strawberry Lumer isi 3">
+                        <button class="btn-zoom" data-image="donat goreng lumer strawberry.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Strawberry Lumer isi 3</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng tiramisu springkle.png" alt="Donat Tiramisu Sprinkle" />
-                        <button class="btn-zoom"
-                             data-image="donat goreng tiramisu springkle.png"
-                             data-name="Donat Tiramisu Sprinkle isi 3">
+                        <button class="btn-zoom" data-image="donat goreng tiramisu springkle.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Tiramisu Sprinkle isi 3</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng lumer tiramisu.png" alt="Donat Tiramisu Lumer" />
-                        <button class="btn-zoom"
-                             data-image="donat goreng lumer tiramisu.png"
-                             data-name="Donat Tiramisu Lumer isi 3">
+                        <button class="btn-zoom" data-image="donat goreng lumer tiramisu.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Tiramisu Lumer isi 3</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
                 <div class="produk-card">
                     <div class="produk-card-image-container">
                         <img src="donat goreng tabur coklat.png" alt="Donat Cokelat Bubuk" />
-                        <button class="btn-zoom"
-                             data-image="donat goreng tabur coklat.png"
-                             data-name="Donat Cokelat Bubuk isi 3">
+                        <button class="btn-zoom" data-image="donat goreng tabur coklat.png">
                              <i class="fas fa-search-plus"></i>
                          </button>
                     </div>
                     <h3>Donat Cokelat Bubuk isi 3</h3>
                     <p>Rp 10.000</p>
-                    
                 </div>
             </div>
         </div>
+
+        <!-- TOMBOL PESAN SEKARANG BESAR (CTA) -->
+        <div class="order-now-container">
+            <a href="https://wa.me/6285799452120?text=Halo%20Donque%20Donuts%2C%20saya%20ingin%20memesan%20donat%20..." target="_blank" class="btn-order-large">
+                <i class="fab fa-whatsapp"></i> Pesan Sekarang Lewat WhatsApp
+            </a>
+        </div>
+
     </section>
 
+    <!-- Informasi Menu -->
     <section class="menu-info-section">
         <h2>Daftar Menu Donat Kukus & Goreng</h2>
         <div class="menu-info-content">
 
             <div class="menu-column">
-                <h3>🍩 Donat Kukus (Topping Lumer)</h3>
+                <h3>🍩 Topping Lumer</h3>
                 <ul>
                     <li>Coklat</li>
                     <li>Tiramisu</li>
@@ -833,20 +678,18 @@
                     <li>Taro</li>
                     <li>Strawberry</li>
                 </ul>
-                <p>
-                    *Topping lumer langsung disiram di atas donat.
-                </p>
+                <p>*Topping lumer langsung disiram di atas donat.</p>
             </div>
 
             <div class="menu-column">
-                <h3>🍩 Donat Goreng (Lumer & Bubuk)</h3>
+                <h3>🍩 Topping Bubuk</h3>
                 <ul>
-                    <li>Lumer: Coklat, Tiramisu</li>
-                    <li>Bubuk: Gula halus, Milo, Coklat bubuk, Matcha bubuk</li>
+                    <li>Gula halus</li>
+                    <li>Milo</li>
+                    <li>Coklat bubuk</li>
+                    <li>Matcha bubuk</li>
                 </ul>
-                <p>
-                    *Topping bubuk ditabur, tidak meleleh.
-                </p>
+                <p>*Topping bubuk ditabur, tidak meleleh.</p>
             </div>
 
             <div class="menu-column">
@@ -859,11 +702,9 @@
                 </ul>
                 <p style="margin: 10px 0 5px;">🎉 Free Topping:</p>
                 <ul>
-                    <li>Keju, Chocochip, Oreo, Kacang, Mises / Ceres, Sprinkle, Chocochips Rainbow</li>
+                    <li>Keju, Chocochip, Oreo, Kacang, Mises, Sprinkle, Rainbow</li>
                 </ul>
-                <p class="free-ongkir-alert">
-                    ✅ Free Ongkir area Purworejo Kota
-                </p>
+                <p class="free-ongkir-alert">✅ Free Ongkir area Purworejo Kota</p>
             </div>
         </div>
     </section>
@@ -898,58 +739,16 @@
         </div>
     </footer>
 
+    <!-- Image Modal -->
     <div id="imageModal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn">&times;</button>
             <img id="modalFullImage" class="modal-image" src="" alt="Product Image">
         </div>
     </div>
-    
-    <div id="productDetailModal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn">&times;</button>
-            <div class="modal-image-wrapper">
-                <img id="modalProductImage" class="modal-image" src="" alt="Product Image">
-            </div>
-            <div class="modal-details">
-                <h3 id="modalProductName" class="modal-title"></h3>
-                <p id="modalProductDescription" class="modal-description"></p>
-                <p id="modalProductPrice" class="modal-price"></p>
-                <a id="modalWhatsappButton" href="#" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Pesan Sekarang!
-                </a>
-            </div>
-        </div>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Nomor WhatsApp (sudah ada di kode Anda)
-            const whatsappNumber = '6285799452120'; 
-
-            // Mendapatkan URL LENGKAP saat ini dalam huruf kecil
-            const fullUrl = window.location.href.toLowerCase();
-            
-            // Logika untuk Navigasi Aktif (Active State)
-            const navLinks = document.querySelectorAll('.nav-menu a');
-
-            navLinks.forEach(link => {
-                link.classList.remove('active'); // Hapus kelas 'active' dari semua tautan
-                const linkPath = link.getAttribute('href').toLowerCase();
-
-                // Pengecekan 1: Jika URL mengandung nama file tautan (paling andal di lokal)
-                const isCurrentPage = fullUrl.includes(linkPath) && linkPath !== '';
-                
-                // Pengecekan 2: Menangani kasus Home (index.html) jika diakses dari root (URL tidak mengandung nama file .html yang lain)
-                const isHomeRoot = linkPath === 'index.html' && (fullUrl.endsWith('index.html') || !fullUrl.includes('.html'));
-
-                if (isCurrentPage || isHomeRoot) {
-                    link.classList.add('active'); // Tambahkan kelas 'active' (garis pink)
-                }
-            });
-
-
-            // === Logic untuk Modal Zoom Gambar ===
             const zoomButtons = document.querySelectorAll('.btn-zoom');
             const imageModalOverlay = document.getElementById('imageModal');
             const modalFullImage = document.getElementById('modalFullImage');
@@ -966,7 +765,6 @@
                 document.body.style.overflow = '';
             }
 
-            // Event listener untuk tombol zoom
             zoomButtons.forEach(button => {
                 button.addEventListener('click', function(event) {
                     event.preventDefault();
@@ -975,7 +773,6 @@
                 });
             });
 
-            // Event listener untuk menutup modal
             imageModalCloseBtn.addEventListener('click', closeImageModal);
             imageModalOverlay.addEventListener('click', function(event) {
                 if (event.target === imageModalOverlay) {
@@ -988,17 +785,16 @@
                 }
             });
 
-            // === Logic untuk Tombol WhatsApp ===
-            const whatsappButtons = document.querySelectorAll('.produk-card .btn-whatsapp');
-            
-            whatsappButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    // Ambil pesan dari data-whatsapp-message
-                    const whatsappMessage = this.dataset.whatsappMessage; 
-                    const encodedMessage = encodeURIComponent(whatsappMessage);
-                    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-                });
+            // Script untuk navigasi aktif
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            const currentPath = window.location.pathname.split('/').pop();
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkPath = link.getAttribute('href').split('/').pop();
+                if (currentPath === linkPath || (currentPath === '' && linkPath === 'index.html')) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>
